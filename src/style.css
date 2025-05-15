@@ -1,3 +1,4 @@
+/* === GLOBAL RESET === */
 * {
   margin: 0;
   padding: 0;
@@ -9,7 +10,7 @@ html {
 }
 
 body {
-  background-color: #292524;
+  background: linear-gradient(to right, #1e1b1a, #3f3a37);
   color: #fafaf9;
   font-family: 'Sono', sans-serif;
   padding: 48px 64px 0;
@@ -138,25 +139,25 @@ h1 {
 }
 
 .vote-buttons button {
-  background-color: #78716c;
-  color: inherit;
+  background-color: #4f46e5;
+  color: #ffffff;
   font-family: inherit;
   font-weight: 600;
   border: none;
-  border-radius: 100px;
+  border-radius: 999px;
   font-size: 18px;
-  padding: 6px 12px;
+  padding: 6px 14px;
   transition: 0.3s;
 }
 
 .vote-buttons button:hover {
-  background-color: #57534e;
+  background-color: #6366f1;
   cursor: pointer;
 }
 
 .vote-buttons button:disabled {
-  background-color: #44403c;
-  cursor: pointer;
+  background-color: #3b3a38;
+  color: #888;
 }
 
 ul {
@@ -178,25 +179,27 @@ ul {
 
 .btn {
   font-family: 'Coiny', sans-serif;
-  color: inherit;
-  line-height: 1;
+  color: white;
   text-transform: uppercase;
   font-size: 17px;
-  padding: 16px 0 13px;
-  background-image: linear-gradient(135deg, #3b82fa, #ef4444, #16a34a, #eab300);
+  padding: 16px 24px;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
   border: none;
-  border-radius: 100px;
-  transition: 0.3s;
+  border-radius: 999px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5);
   cursor: pointer;
-  transform: scale(110%) rotate(-2deg);
 }
 
 .btn-large {
   font-size: 20px;
   padding: 20px 32px 17px;
+  background: linear-gradient(to right, #3b82f6, #06b6d4);
 }
 
 .btn-all-categories {
@@ -262,5 +265,56 @@ ul {
 
   .vote-buttons button {
     font-size: 1.6rem;
+  }
+}
+.daily-fact {
+  background-color: #fef9c3;
+  border-radius: 16px;
+  padding: 1.5rem 2rem;
+  margin: 2rem auto;
+  max-width: 200%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
+  text-align: center;
+  font-family: 'Coiny', sans-serif;
+  background: linear-gradient(145deg, #031c3c, #31445c, #ffffff);
+  color: #1e3a8a;
+  color: white;
+  border-radius: 16px;
+  padding: 1.5rem 2rem;
+  margin: 2rem auto;
+  text-align: center;
+
+  animation: floatIn 0.8s ease;
+  text-align: center;
+  
+  animation: floatIn 0.8s ease;
+}
+
+.daily-fact h2 {
+  font-size: 3rem;
+  color: #e1e1dc;
+  margin-bottom: 0.8rem;
+  font-weight: 700;
+}
+
+.daily-fact p {
+  font-size: 2rem;
+  line-height: 1.6;
+  color: #fbf9f9;
+}
+
+.daily-fact a {
+  color: #f8f8fa;
+  text-decoration: underline;
+  font-weight: 600;
+}
+@keyframes floatIn {
+  0% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
   }
 }

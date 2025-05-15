@@ -75,12 +75,17 @@ function App() {
     },
     [currentCategory]
   );
+
   return (
     <>
       <Header showForm={showForm} setShowForm={setShowForm} />
       {showForm && (
         <NewFactForm setFacts={setFacts} setShowForm={setShowForm} />
       )}
+      
+      {/* ✅ DailyFact is now rendered here */}
+      <DailyFact facts={facts} />
+
       <main className='main'>
         <CategoryFilter setCurrentCategory={setCurrentCategory} />
         {(isLoading && <Loader />) || (
@@ -248,6 +253,32 @@ function FactList({ facts, setFacts }) {
       </ul>
       <p>There are {facts.length} facts in the database. Add your own!</p>
     </section>
+  );
+}
+function DailyFact({ facts }) {
+  const [dailyFact, setDailyFact] = useState(null);
+
+  useEffect(() => {
+    if (facts.length > 0) {
+      const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
+      const seed = today.split('-').join('');
+      const index = parseInt(seed, 10) % facts.length;
+      setDailyFact(facts[index]);
+    }
+  }, [facts]);
+
+  if (!dailyFact) return null;
+
+  return (
+    <div className="daily-fact">
+      <h2>🌟 Fun Fact of the Day</h2>
+      <p>
+        {dailyFact.text}{' '}
+        <a href={dailyFact.source} target="_blank" rel="noreferrer">
+          (Source)
+        </a>
+      </p>
+    </div>
   );
 }
 
